@@ -1,0 +1,23 @@
+databricks_sqldw:
+  target: dev
+  outputs:
+    dev:
+      host: "{{ env_var('DBT_HOST') }}"
+      http_path: "/sql/1.0/endpoints/{{ env_var('DBT_DBSQL_WAREHOUSE_ID') }}"
+      catalog: demo
+      schema: gold
+      threads: 2
+      token: "{{ env_var('DBT_ACCESS_TOKEN') }}"
+      type: databricks
+databricks_cluster:
+  target: dev
+  outputs:
+    dev:
+      host: "{{ env_var('DBT_HOST') }}"
+      http_path: "/sql/protocolv1/o/{{ env_var('DBT_CLUSTER_ID') }}"
+      catalog: demo
+      schema: gold
+      threads: 2
+      token: "{{ env_var('DBT_ACCESS_TOKEN') }}"
+      type: databricks
+

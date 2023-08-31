@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: silver_layer
+    catalog: demo
+    schema: main
+    tables:
+      - name: item_silver
+      - name: user_silver
+      - name: transaction_silver

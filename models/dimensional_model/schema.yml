@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: transaction_facts
+    description: Some transaction
+
+    columns:
+      - name: currency_id
+        tests:
+          - relationships:
+              to: ref('currency_dimension')
+              field: currency_id
+          - not_null
+
+  - name: currency_dimension
+    description: Dimension for currencies used in transaction
+
+    columns:
+      - name: currency_id
+        description: Generated unique id for the currencies
+        tests:
+            - unique
+            - not_null
+
+      - name: currency
+        description: Code for the currency used in a transaction
+        tests:
+            - unique
+            - not_null
